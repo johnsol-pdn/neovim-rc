@@ -55,7 +55,7 @@ vim.cmd.colorscheme("catnet_chreamy")
 -- Линия вкладок
 vim.opt.showtabline = 2
 -- TODO: Переписать на Lua
-vim.opt.tabline = "%!justmyrc#TabLine()"
+vim.opt.tabline = "%!v:lua.require'justmyrc'.get_tab_line()"
 
 -- Нумерация строк
 -- Включает колонку нумерации строк
@@ -89,7 +89,7 @@ vim.opt.laststatus = 2
 -- Определение содержания строки статуса
 vim.opt.statusline = ""
 vim.opt.statusline:append("%#StatusLineEditorMode# %{v:lua.require'justmyrc'.get_mode()} ")
-vim.opt.statusline:append("%#StatusLineBranchName# %{g:git_branch} ")
+vim.opt.statusline:append("%#StatusLineBranchName# %{v:lua.require'justmyrc'.get_branch_name()} ")
 vim.opt.statusline:append("%#StatusLineFileFormat# %{&ff} ")
 vim.opt.statusline:append("%#StatusLineEmpty# %= ")
 vim.opt.statusline:append("%#StatusLineReadOnlyFlag# %r ")
@@ -107,7 +107,7 @@ end)
 vim.keymap.set("i", "jk", "<Esc>")
 
 -- === Авто-команды ===
--- Изменения строки для вывода ветки Git
+--[[ Изменения строки для вывода ветки Git
 local git_branch_augroup = vim.api.nvim_create_augroup("GitBranch", { clear = true })
 
 vim.api.nvim_create_autocmd(
@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd(
         group = git_branch_augroup,
         callback = function()
             -- TODO: Переписать подмодуль на Lua
-            vim.fn["justmyrc#GetBranchName"](vim.fn.expand('%'))
+            vim.g.git_branch = require'justmyrc'.get_branch_name(vim.fn.expand('%'))
         end
     })
 
@@ -130,6 +130,7 @@ vim.api.nvim_create_autocmd(
             vim.g.git_branch = ""
         end
     })
+]]--
 
 -- == Настройки для типов файлов ==
 -- Python
