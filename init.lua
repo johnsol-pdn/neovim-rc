@@ -107,31 +107,6 @@ end)
 vim.keymap.set("i", "jk", "<Esc>")
 
 -- === Авто-команды ===
---[[ Изменения строки для вывода ветки Git
-local git_branch_augroup = vim.api.nvim_create_augroup("GitBranch", { clear = true })
-
-vim.api.nvim_create_autocmd(
-    { "BufEnter", "ShellCmdPost", "FileChangedShellPost" },
-    {
-        pattern = "*",
-        group = git_branch_augroup,
-        callback = function()
-            -- TODO: Переписать подмодуль на Lua
-            vim.g.git_branch = require'justmyrc'.get_branch_name(vim.fn.expand('%'))
-        end
-    })
-
-vim.api.nvim_create_autocmd(
-    { "BufLeave" },
-    {
-        pattern = "*",
-        group = git_branch_augroup,
-        callback = function()
-            vim.g.git_branch = ""
-        end
-    })
-]]--
-
 -- == Настройки для типов файлов ==
 -- Python
 local python_augroup = vim.api.nvim_create_augroup("Python", { clear = true })
