@@ -42,7 +42,7 @@ M.get_tab_line = function()
             tab_line = tab_line .. "%#TabLine#"
         end
 
-        tab_line = tab_line .. " " .. get_tab_label(i) .. " "
+        tab_line = tab_line .. " " .. i .. ": " .. get_tab_label(i) .. " "
     end
 
     tab_line = tab_line .. "%#TabLineFill#"
