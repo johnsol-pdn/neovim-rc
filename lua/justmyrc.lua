@@ -20,7 +20,7 @@ M.get_branch_name = function()
     local current_directory = vim.fn.fnamemodify(vim.fn.system("readlink -f " .. vim.fn.expand("%")), ":h")
 
     -- FIXME: Небезопасная подстановка пути в команду system
-    local git_branch_name = vim.fn.trim(vim.fn.system("git -C " .. current_directory .. " rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d '\r\n'"))
+    local git_branch_name = vim.fn.trim(vim.fn.system("git -C \"" .. current_directory .. "\" rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d '\r\n'"))
 
     return git_branch_name
 end
