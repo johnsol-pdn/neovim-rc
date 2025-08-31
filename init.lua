@@ -50,7 +50,7 @@ vim.opt.backspace = "indent,eol,start"
 
 -- === Интерфейс ===
 -- Цветовая схема
-vim.cmd.colorscheme("catnet_chreamy")
+vim.cmd.colorscheme("catnet_chreamy_dark")
 
 -- Линия вкладок
 vim.opt.showtabline = 2
