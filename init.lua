@@ -1,19 +1,3 @@
---[[ ===== Настройка LSP =====
-local lspconfig = require("lspconfig");
-
-lspconfig.pylsp.setup {
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    maxLineLength = 120
-                }
-            }
-        }
-    }
-}
---]]
-
 -- ===== Базовая конфигурация =====
 vim.opt.encoding = "utf8"
 
