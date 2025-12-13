@@ -20,6 +20,9 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
+-- Перенос курсора в визуальном режиме на следующую/предыдущую строку при нажатии Backspace, Space, Left и Right
+vim.opt.whichwrap = "b,s,<,>"
+
 -- Отслеживание изменений в редактируемом файле вне редактора
 vim.opt.autoread = true
 
