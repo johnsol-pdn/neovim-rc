@@ -175,6 +175,19 @@ vim.api.nvim_create_autocmd(
         end
     })
 
+-- Log файлы
+local log_augroup = vim.api.nvim_create_augroup("LogFiles", { clear = true })
+
+vim.api.nvim_create_autocmd(
+    { "BufRead", "BufNewFile" },
+    {
+        pattern = "*.log",
+        group = log_augroup,
+        callback = function()
+            vim.opt.filetype = "messages"
+        end
+    })
+
 -- Для всех типов файлов
 local readonly_augroup = vim.api.nvim_create_augroup("ReadOnly", { clear = true })
 
