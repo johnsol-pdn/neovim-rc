@@ -75,7 +75,8 @@ vim.opt.showmode = false
 vim.opt.laststatus = 2
 
 -- Определение содержания строки статуса
-vim.opt.statusline = ""
+-- Начиная с версии 0.12.0 при назначении statusline пустой строки возвращается дефолтная настройка строки
+vim.opt.statusline = "%#ModeNormalColor#"
 vim.opt.statusline:append("%#StatusLineEditorMode# %{v:lua.require'justmyrc'.get_mode()} ")
 vim.opt.statusline:append("%#StatusLineBranchName# %{v:lua.require'justmyrc'.get_branch_name()} ")
 vim.opt.statusline:append("%#StatusLineFileFormat# %{&ff} ")
